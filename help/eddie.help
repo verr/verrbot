@@ -1,0 +1,123 @@
+%{help=auth}
+%b###  auth%b
+   Attempts to authorize itself with the channel services.
+   
+   The $service, $serv_user and $serv_pass may need to be set in eddie2.tcl
+
+   %bNOTE:%b In order for the undernet services to automatically op your
+   bot, you need to say this on the partyline:
+       .chanset #channel need-op putserv "PRIVMSG X :op #channel $botnick"
+%{help=action}
+%b###  action%b <channel> <text>
+   Dumps the text to the specified channel in an ACTION, as if the bot "did" it.
+
+see also: me, say
+%{help=broadcast}
+%b###  broadcast%b <text>
+   Displays a message to all the channels the bot is currently on.
+   Useful for announcing that the bot will go down, etc.
+
+see also: banner
+%{help=eddie}
+%b###  eddie%b
+   The project site for Eddie's Extensions is at http://sourceforge.net/projects/eddie42
+%{help=eddiecheck}
+%b###  eddiecheck%b
+   Broadcasts a message to detirmine which bots on the botnet are running Eddie's Exensions,
+   and which version.
+%{help=kill}
+%b###  kill%b <handle> <reason>
+   Kills a partyline or file area connection, rather abruptly.
+
+see also: boot
+%{help=limit}
+%b###  limit%b <on/off/status>
+%bon%b     Activates channel limiting on selected channels.
+%bodd%b    Deactivates channel limiting on selected channels.
+%bstatus%b Displays the current status of the channel limiting.
+%{help=limit}
+%b###  limit%b <$n>
+   Sets the value of $n;
+    where channel limit = current number of users on the chan + $n
+
+   %bNOTE:%b The default value of n is set in the eddie2.tcl file.
+%{help=locktopic}
+%b###  locktopic%b [channel]
+   Locks the topic on the specified channel, so that only the bot may change it.
+
+   If [channel] is omitted, it displays which channels currently have their 
+   topic locked.
+
+see also: unlocktopic, topic
+%{help=hand2nick}
+%b###  hand2nick%b <handle> [channel]
+   Returns the nickname of the first person on the [channel] whose user@host
+   matches that handle, if there is one.
+
+   If [channel] is not specified, bot will check all of its channels  
+%{help=join}
+%b###  join%b <channel>
+   Makes the bot join a channel. This is a simplified version of +chan, it makes
+   the bot join the channel, but do nothing there.
+
+see also: +chan
+%{help=part}
+%b###  part%b <channel>
+   Simply makes the bot leave the specified channel.
+
+see also: -chan
+%{help=poll}
+%b###  poll%b <on/off/reset/status>
+%bon%b     Opens the bot's poll. A question must already be set (see below).
+%boff%b    Closes the bot's poll and displays the results on the partyline.
+%breset%b  Clears the question and results. The poll can only be reset when
+        it is closed.
+%bstatus%b Displays the current status of the poll.
+%{help=poll}
+%b### poll%b <new question>
+   This command set a new question for the bot's poll. It can only be done
+   when the poll is closed.
+%{help=seanmode}
+%b###  seanmode%b <on/off/status>
+   A trick to play on lamers is to say that !seanmode gives them ops. When
+   activated it will in fact kick whoever says it, as long as the bot has ops
+   itself. :)
+%bon%b     Activates !seanmode
+%boff%b    Deactivates !seanmode
+%bstatus%b Displays the current status of !seanmode
+%{help=stats}
+%b###  stats%b
+
+   %bNOTE:%b See http://pisg.sourceforge.net for an IRC statistics generator.
+
+see also: urls
+%{help=sms}
+%b###  sms%b <list>
+%blist%b   Displays a list of all aliases and address that have been loaded
+        from eddie.conf.
+%{help=unlocktopic}
+%b###  unlocktopic%b <channel>
+   Unlocks the topic on the specified channel, so that users other than the bot
+   may change it.
+
+see also: locktopic, topic
+%{help=urls}
+%b###  urls%b
+   Displays a list of all URLs in $url_data, which is set in eddie.conf.
+
+   %bNOTE:%b See http://pisg.sourceforge.net for an IRC statistics generator.
+   It makes a good webpage to include in $url_data.
+
+see also: url
+%{help=all}
+### commands for %bEddie's Extensions%b
+    %bbroadcast   stats       action     eddiecheck%b
+    %burls%b
+  for ops:
+    %blocktopic   poll        unlocktopic%b
+%{+m}
+  for masters:
+    %bauth        join        kill        limit%b
+    %bjoin        seanmode    sms%b
+
+%{-}
